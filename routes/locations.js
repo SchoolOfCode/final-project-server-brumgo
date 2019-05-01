@@ -11,4 +11,16 @@ router.get("/", async function(req, res, next) {
   }
 });
 
+router.post("/", async(req, res, next)=>{
+  try{
+    console.log(req.body);
+    const locations = new Location(req.body);
+    await locations.save();
+    res.status(201).json({ payload: {locations} });
+  } catch (err){
+    console.log(err);
+    res.status(500).json({ message: "error creating location", error: err });
+  }
+});
+
 module.exports = router;
