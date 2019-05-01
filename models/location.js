@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const locationsSchema = new mongoose.Schema({
+const locationsSchema = new mongoose.Schema(
+  {
   id: String,
   locationName: String,
   category: String,
